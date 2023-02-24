@@ -1,8 +1,9 @@
 import { Component } from 'react';
-import { AddContactsForm } from 'components/AddContactsForm/AddContactsForm';
-import { Contacts } from 'components/Contacts/Contacts';
+import { ContactsForm } from 'components/ContactsForm/ContactsForm';
+import { ContactsList } from 'components/ContactsList/ContactsList';
 import { GlobalStyle } from 'components/GlobalStyle';
 import { Layout } from './App.styled';
+import { Filter } from 'components/Filter/Filter';
 
 export class App extends Component {
   state = {
@@ -13,8 +14,6 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   addContact = newContact => {
@@ -37,12 +36,11 @@ export class App extends Component {
     return (
       <Layout>
         <h1>Phonebook</h1>
-        <AddContactsForm onSave={this.addContact} />
-        <Contacts
-          contactsList={filteredContacts}
-          filter={filter}
-          onChange={this.filterContacts}
-        />
+        <ContactsForm onSave={this.addContact} />
+
+        <h2>Contacts</h2>
+        <Filter onFilter={filter} onChange={this.filterContacts} />
+        <ContactsList contactsList={filteredContacts} />
         <GlobalStyle />
       </Layout>
     );

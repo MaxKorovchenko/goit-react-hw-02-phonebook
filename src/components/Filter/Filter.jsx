@@ -1,11 +1,11 @@
-export const Filter = ({ filter, onChange }) => {
+export const Filter = ({ onFilter, onChange }) => {
   return (
     <div>
       <label>
         Find contacts by name
         <input
           type="text"
-          value={filter}
+          value={onFilter}
           name="nameToFind"
           onChange={onChange}
           autoComplete="off"

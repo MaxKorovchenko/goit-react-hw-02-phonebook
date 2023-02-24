@@ -1,8 +1,8 @@
 import { Formik, Field } from 'formik';
 import { nanoid } from 'nanoid';
-import { Form, FormButton, FormField } from './AddContactsForm.styled';
+import { Form, FormButton, FormField } from './ContactsForm.styled';
 
-export const AddContactsForm = ({ onSave }) => {
+export const ContactsForm = ({ onSave }) => {
   return (
     <Formik
       initialValues={{

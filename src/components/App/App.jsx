@@ -23,14 +23,26 @@ export class App extends Component {
     }));
   };
 
+  filterContacts = e => {
+    this.setState({ filter: e.currentTarget.value });
+  };
+
   render() {
-    const { contacts } = this.state;
+    const { contacts, filter } = this.state;
+
+    const filteredContacts = contacts.filter(contact =>
+      contact.name.toLowerCase().includes(filter.toLocaleLowerCase())
+    );
 
     return (
       <Layout>
         <h1>Phonebook</h1>
         <AddContactsForm onSave={this.addContact} />
-        <Contacts contactsList={contacts} />
+        <Contacts
+          contactsList={filteredContacts}
+          filter={filter}
+          onChange={this.filterContacts}
+        />
         <GlobalStyle />
       </Layout>
     );

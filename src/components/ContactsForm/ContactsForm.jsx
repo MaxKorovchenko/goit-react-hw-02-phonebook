@@ -11,7 +11,6 @@ export const ContactsForm = ({ onSave }) => {
       }}
       onSubmit={(values, actions) => {
         onSave({ ...values, id: nanoid() });
-        console.log(values);
         actions.resetForm();
       }}
     >

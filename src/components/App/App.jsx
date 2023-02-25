@@ -2,7 +2,7 @@ import { Component } from 'react';
 import { ContactsForm } from 'components/ContactsForm/ContactsForm';
 import { ContactsList } from 'components/ContactsList/ContactsList';
 import { GlobalStyle } from 'components/GlobalStyle';
-import { Layout } from './App.styled';
+import { Layout, MainTitle, Title } from './App.styled';
 import { Filter } from 'components/Filter/Filter';
 
 export class App extends Component {
@@ -41,15 +41,16 @@ export class App extends Component {
 
     return (
       <Layout>
-        <h1>Phonebook</h1>
+        <MainTitle>Phonebook</MainTitle>
         <ContactsForm onSave={this.addContact} />
 
-        <h2>Contacts</h2>
+        <Title>Contacts</Title>
         <Filter onFilter={filter} onChange={this.filterContacts} />
         <ContactsList
           contactsList={filteredContacts}
           onDelete={this.deleteContact}
         />
+
         <GlobalStyle />
       </Layout>
     );

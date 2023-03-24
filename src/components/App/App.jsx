@@ -1,9 +1,11 @@
 import { Component } from 'react';
+
 import { ContactsForm } from 'components/ContactsForm/ContactsForm';
 import { ContactsList } from 'components/ContactsList/ContactsList';
+import { Filter } from 'components/Filter/Filter';
+
 import { GlobalStyle } from 'components/GlobalStyle';
 import { Layout, MainTitle, Title } from './App.styled';
-import { Filter } from 'components/Filter/Filter';
 
 export class App extends Component {
   state = {
@@ -52,7 +54,7 @@ export class App extends Component {
 
         <Title>Contacts</Title>
         <Filter onFilter={filter} onChange={this.filterContacts} />
-        <ContactsList contactsList={contacts} onDelete={this.deleteContact} />
+        <ContactsList items={contacts} onDelete={this.deleteContact} />
 
         <GlobalStyle />
       </Layout>
